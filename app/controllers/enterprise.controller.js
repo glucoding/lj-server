@@ -26,6 +26,16 @@ exports.create = (req, res) => {
         remark: req.body.remark, //审核意见
         region:req.body.region, //所属区县
         status: req.body.status, //审核状态 1：申请中 2：已入库
+
+        //存储相关用户名及密码
+        marketUsername: req.body.marketUsername,
+        marketPassword: req.body.marketPassword,
+        taxUsername: req.body.taxUsername,
+        taxPassword: req.body.taxPassword,
+        hrUsername: req.body.hrUsername,
+        hrPassword: req.body.hrPassword,
+        electricUsername: req.body.electricUsername,
+        electricPassword: req.body.electricPassword
     });
 
     // Save a Enterprise in the MongoDB
@@ -54,6 +64,17 @@ exports.findAll = (req, res) => {
 
 exports.findAllByRegion = (req, res) => {
     Enterprise.find({'region':req.params.region})
+        .then(enterprises => {
+            res.send(enterprises);
+        }).catch(err => {
+        res.status(500).send({
+            message: err.message
+        });
+    });
+};
+
+exports.findAllByStatus = (req, res) => {
+    Enterprise.find({'status':req.params.status})
         .then(enterprises => {
             res.send(enterprises);
         }).catch(err => {
@@ -108,6 +129,16 @@ exports.update = (req, res) => {
         remark: req.body.remark, //审核意见
         region: req.body.region, //所属区县
         status: req.body.status, //审核状态 1：申请中 2：已入库
+
+        //存储相关用户名及密码
+        marketUsername: req.body.marketUsername,
+        marketPassword: req.body.marketPassword,
+        taxUsername: req.body.taxUsername,
+        taxPassword: req.body.taxPassword,
+        hrUsername: req.body.hrUsername,
+        hrPassword: req.body.hrPassword,
+        electricUsername: req.body.electricUsername,
+        electricPassword: req.body.electricPassword
     }, {new: true})
         .then(enterprise => {
         if(!enterprise) {

@@ -13,6 +13,8 @@ module.exports = function(app) {
 
     app.get('/api/enterprisesByRegion', enterprises.findAllByRegion);
 
+    app.get('/api/enterprisesByStatus/:status', enterprises.findAllByStatus);
+
     // Retrieve a single Customer by Id
     app.get('/api/enterprises/:_id', enterprises.findOne);
 

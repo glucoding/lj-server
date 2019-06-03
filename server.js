@@ -43,6 +43,8 @@ require('./app/routes/upload.routes.js')(app);
 require('./app/routes/article.routes.js')(app);
 require('./app/routes/loanProduct.routes.js')(app);
 require('./app/routes/loanProductApp.routes.js')(app);
+require('./app/routes/bank.routes.js')(app);
+require('./app/routes/requirement.routes.js')(app);
 
 // Create a Server
 var server = app.listen(8081, function () {

@@ -23,6 +23,14 @@ const EnterpriseSchema = mongoose.Schema({
     region: String,
     status: String, //审核状态 1：申请中 2：已入库
 
+    marketUsername: String,
+    marketPassword: String,
+    taxUsername: String,
+    taxPassword: String,
+    hrUsername: String,
+    hrPassword: String,
+    electricUsername: String,
+    electricPassword: String
 
     //age: { type: Number, min: 18, max: 65, required: true }
 });

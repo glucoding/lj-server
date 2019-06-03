@@ -61,13 +61,8 @@ exports.findAllByBank = (req, res) => {
 };
 
 exports.findAllByCondition = (req, res) => {
-    // Find enterprise and update it
-    LoanProduct.find({
-        orgName: req.body.orgId,
-        type: req.body.type,
-        serviceFor: req.body.serviceFor,
-        guaranteeBy: req.body.guaranteeBy,
-    }, {new: true})
+    console.log(req.body)
+    LoanProduct.where('orgName').equals(req.body.orgName).where('type').equals(req.body.type).where('serviceFor').in(req.body.serviceFor).where('guaranteeBy').in(req.body.guaranteeBy)
         .then(loanProducts => {
             if(!loanProducts) {
                 return res.status(404).send({
