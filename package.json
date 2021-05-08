@@ -18,7 +18,7 @@
     "jsonwebtoken": "^8.5.1",
     "kareem": "^2.3.0",
     "loadash": "^1.0.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "mongodb": "^3.2.3",
     "mongoose": "^5.5.2",
     "mpath": "^0.5.1",
